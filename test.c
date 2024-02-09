@@ -64,6 +64,7 @@ int main()
             printf("Enter an Edge to be inserted : ");
             scanf("%d %d", &origin, &destin);
             insertEdge(origin, destin);
+            insertEdge(destin, origin);
             break;
         case 3:
             printf("Enter a vertex to be deleted : ");
@@ -75,6 +76,7 @@ int main()
             printf("Enter an edge to be deleted : ");
             scanf("%d %d", &origin, &destin);
             deleteEdge(origin, destin);
+            deleteEdge(destin, origin);
             break;
         case 5:
             display();
@@ -380,7 +382,7 @@ void dfs(struct Vertex *tmp)
     int j, x;
     x = tmp->info;
     visited[x] = 1;
-    printf("The node visited id %d\n", x);
+    printf("%d", x);
     q = tmp->firstEdge;
     while (q != NULL)
     {
@@ -402,7 +404,7 @@ void bfs(struct Vertex *tmp)
 
     x = tmp->info;
     visited[x] = 1;
-    printf("The node visited id %d", x);
+    printf("%d", x);
     rear++;
     front++;
     que[rear] = x;
